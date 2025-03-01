@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mi2a/screen/page_column.dart';
+import 'package:flutter_mi2a/screen/page_gambar.dart';
+import 'package:flutter_mi2a/screen/page_list_horizontal.dart';
+import 'package:flutter_mi2a/screen/page_row.dart';
+import 'package:flutter_mi2a/screen/page_row_column.dart';
+import 'package:flutter_mi2a/screen/page_satu.dart';
+import 'package:flutter_mi2a/screen/page_url_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +57,79 @@ class PageUtama extends StatelessWidget {
       ),
       
       body: Center(
-        child: Text('Welcome to MI 2A Apps'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly, //horizal
+          crossAxisAlignment: CrossAxisAlignment.center,//vertical
+          children: [
+            Text('Welcome to MI 2A Apps'),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+                => PageSatu() //berfungsi pindah page
+              ));
+
+              //Bikin 2 page untuk page 2 dan 3, kemudian bisa pindah2 dari setiap button
+            },
+              color: Colors.orange,
+              child: Text('Page1', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)
+                => PageColumn() //berfungsi pindah page
+                ));
+              },
+                elevation: 18.0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                color: Colors.orange,
+                clipBehavior: Clip.antiAlias,
+                child: Text('Page2', style: TextStyle(fontSize: 14, color: Colors.white),),
+              ),
+            ),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageRow() //berfungsi pindah page
+              ));
+            },
+              color: Colors.orange,
+              child: Text('Page3', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageRowColumn() //berfungsi pindah page
+              ));
+            },
+              color: Colors.orange,
+              child: Text('Page 4', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageListHorizontal() //berfungsi pindah page
+              ));
+            },
+              color: Colors.orange,
+              child: Text('Page List', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageGambar() //berfungsi pindah page
+              ));
+            },
+              color: Colors.orange,
+              child: Text('Page Gambar', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageUrlImage() //berfungsi pindah page
+              ));
+            },
+              color: Colors.orange,
+              child: Text('Page Url Image', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+          ],
+        ),
       ),
     );
   }
