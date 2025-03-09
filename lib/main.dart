@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mi2a/screen/nav_bar/page_tab_bar.dart';
 import 'package:flutter_mi2a/screen/page_column.dart';
 import 'package:flutter_mi2a/screen/page_gambar.dart';
 import 'package:flutter_mi2a/screen/page_list_horizontal.dart';
@@ -127,6 +128,15 @@ class PageUtama extends StatelessWidget {
             },
               color: Colors.orange,
               child: Text('Page Url Image', style: TextStyle(fontSize: 14, color: Colors.white),),
+            ),
+
+            MaterialButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              => PageTabBar() //berfungsi pindah page
+              ));
+            },
+              color: Colors.orange,
+              child: Text('Tab Bar', style: TextStyle(fontSize: 14, color: Colors.white),),
             ),
           ],
         ),
