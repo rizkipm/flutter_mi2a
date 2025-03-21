@@ -53,54 +53,58 @@ class _PageListViewState extends State<PageListView> {
         child: ListView.builder(
           itemCount: listBerita.length,
           itemBuilder: (context, index) {
-            return Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        listBerita[index]['gambar'],
-                        fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: (){
+
+              },
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset(
+                          listBerita[index]['gambar'],
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          listBerita[index]['judul'],
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Text(listBerita[index]['tanggal']),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            RatingBarIndicator(
-                              rating: listBerita[index]['rating'],
-                              itemBuilder:
-                                  (context, index) =>
-                                  Icon(Icons.star, color: Colors.yellow),
-                              itemCount: 5,
-                              itemSize: 15,
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            listBerita[index]['judul'],
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
                             ),
-                            SizedBox(width: 20,)
-                          ],
-                        ),
-                      ],
+                          ),
+                          Text(listBerita[index]['tanggal']),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              RatingBarIndicator(
+                                rating: listBerita[index]['rating'],
+                                itemBuilder:
+                                    (context, index) =>
+                                    Icon(Icons.star, color: Colors.yellow),
+                                itemCount: 5,
+                                itemSize: 15,
+                              ),
+                              SizedBox(width: 20,)
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-
-                ],
+                  ],
+                ),
               ),
             );
           },
